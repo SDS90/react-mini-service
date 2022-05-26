@@ -1,0 +1,270 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700,300&subset=latin,greek-ext);
+
+//Variables
+
+
+$pageWidth: 1280px; //Ширина страницы
+$pagePadding: 50px; //Отступы по сторонам
+
+$blue: #009fe9; 
+$white: #fff;
+$whiteOpacity: rgba(255,255,255, 0.5);;
+$textColor: #332c20;
+
+$chatFirstColor: #282828;
+$chatSecondColor: #0078d4;
+$chatBorderColor: #9d9999;
+$chatBackgroundColor: #efefef;
+$chatBackgroundColorOpacity: rgba(239,239,239, 0.5);
+$chatButtonColor: rgba(157,153,153, 1);
+$chatButtonColorOpacity: rgba(157,153,153, 0.5);
+
+$formInputColor: #a0a0a0;
+$formErrorColor: #f80000;
+$formFocusColor: #0078d4;
+$formAddLinkColor: #aaa;
+$formRegLinkColor: #0078d4;
+
+
+//Общие элементы (кроме reset)
+
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body{
+	background-color: $chatBackgroundColor;
+	font-family: 'Open Sans', serif;
+    position: relative;    
+	//padding-top: 155px;
+	 /*font-size: 0px;Ставим на фон - для использования inline-блоков*/
+}
+b,strong{
+	font-weight: bold;
+}
+.font_bolder{
+	font-weight: 600;
+}
+i,em{
+	font-style: italic;
+}
+html * {
+	max-height:1000000px;
+}
+sub{
+    vertical-align: sub;
+}
+sup{
+    vertical-align: super;
+}
+.clearfix{
+	clear: both;
+}
+.clear:after{
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+.none-block{
+    display: none;
+}
+
+.messenger-wrapper{
+    height: 100%;
+}
+
+
+.warning-message-wrapper{
+    display: none;
+
+    &.warning-on{
+        display: block;
+        position: fixed;
+        text-align: center;
+        left: 0px;
+        z-index: 15;
+        right: 0px;
+        top: 0px; bottom: 0px;
+        background-color: rgba(157,153,153,0.5);
+    }
+
+    .warning-message-table{
+        display: table;
+        width: 100%; height: 100%;
+    }
+
+    .warning-message-block{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .warning-message{
+        display: inline-block;
+        position: relative;
+        text-align: left;
+        width: 100%;
+        max-width: 350px;
+        background-color: #fff;
+        padding: 15px 25px;
+        border-radius: 8px;
+        font-size: 16px;
+        line-height: 20px;
+
+        &.error-message,
+        &.error-message .warning-buttons-wrapper{
+            text-align: center;
+        }
+
+        .form-block{
+            margin-top: 10px;
+        }
+    }
+
+    .warning-buttons-wrapper{
+        margin-top: 10px;
+        text-align: center;
+
+        >div{
+            display: inline-block;
+        }
+
+        .warning-button{
+            display: inline-block;
+            padding: 5px 15px;
+            font-size: 14px;
+            text-decoration: none;          
+            cursor: pointer;
+            outline: none;          
+            border: 1px solid #aaa;
+            border-radius: 15px;
+            margin: 0px 5px;
+
+            &.warning-add{
+                background-color: #aaa;
+                color: #fff;
+            }
+            &.warning-back{
+                background-color: #fff;
+                color: #aaa;
+            }
+            &:hover{
+                &.warning-add{
+                    background-color: #fff;
+                    color: #282828;
+                }
+                &.warning-back{
+                    background-color: #282828;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .error-message-header{
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+}
+
+//Стили для текста
+@mixin textStyles{
+    p, ul,ol{
+        margin-bottom: 28px;
+
+        &:last-child{
+            margin-bottom: 0px;
+        }
+    }
+    ul, ol{
+        padding-left: 17px;
+    }
+    ul>li{
+        list-style-type: disc;
+    }
+    ol>li{
+        list-style-type: decimal;
+    }
+}
+
+.textblock{
+    font-family: 'Open Sans', serif;
+    font-size: 17px;
+    line-height: 30px;
+    color: #333;
+    @include textStyles;
+
+    a{
+        text-decoration: none;
+        color: #00a99d !important;
+        &:hover{
+            color:  #8f8f8f !important;
+            border-color: transparent;
+        }
+    }
+
+
+    img{
+        display: inline-block;
+        vertical-align: top;
+        max-width: 100%;
+        margin: 15px 0px;
+    }
+
+    h2,
+    .h2{
+        font-size: 24px;
+        //line-height: 22px;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    h3,h4,h5,h6,
+    .h3,.h4,.h5,.h6{
+        font-size: 19px;
+        line-height: 26px;
+        font-weight: bold;
+        //text-transform: uppercase;
+        margin-top: 12px;
+        //margin-bottom: 8px;
+    }
+}
+
+
+.loader {
+    margin: 0px auto;
+    border: 16px solid #f3f3f3; 
+    border-top: 16px solid #9d9999; 
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+//Окно загрузки и ожидания
+.loading-overlay{
+	position: fixed;
+	top: 0px; left: 0px;
+	bottom: 0px; right: 0px;
+	width: 100%; height: 100%;
+	background-color: rgba(238,238,239,0.7);
+	text-align: center;
+	background-image: url(../img/ajax-loader.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}

@@ -1,0 +1,287 @@
+.reg-form-page{
+	padding: 20px;	
+
+	.reg-form-fieldset{
+		text-align: center;
+	}
+
+	.button-link{
+		font-size: 18px;
+		line-height: 24px;
+		text-decoration: none;
+		cursor: pointer;
+		outline: none;
+
+		&.add-link{
+			display: block;
+			width: 100%;
+			padding: 10px 35px;
+			margin-bottom: 15px;
+			background-color: $formAddLinkColor;
+			color: $white;
+			border: 1px solid $formAddLinkColor;
+			border-radius: 15px;
+			&:hover{
+				background-color: $white;
+				color: $chatFirstColor;
+			}
+		}
+
+		&.reg-link{
+			border: none;
+			background-color: transparent;
+			color: $formRegLinkColor;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.input-styles{
+	width: 100%;
+	background: $white;
+	border: 1px solid $formInputColor;
+	color: $chatFirstColor;
+	padding: 0 5px;
+	outline: none;
+
+	&.focus-input{
+		border: 1px solid $formFocusColor;
+		box-shadow: 0px 0px 4px $formFocusColor;
+	}
+}
+
+.reg-form-wrapper{
+	
+	max-width: 400px;
+	margin: 20px auto;
+	padding: 30px 50px;
+	border-radius: 50px;
+	background-color: $white;
+
+	.reg-form{
+		position: relative;
+		.loading-form-class{
+			position: absolute;
+			top: 0px; bottom: 0px;
+			left: 0px; right: 0px;
+			z-index: 10;
+			background-color: $whiteOpacity;
+			background-image: url(../../img/ajax-loader.gif);
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 25px;
+		line-height: 32px;
+		font-weight: 700;
+		color: $chatFirstColor;
+		margin-bottom: 20px;
+	}
+
+	.form-block,
+	.form-block label{		
+		text-align: left;
+		margin-bottom: 5px;
+	}
+
+	.form-block label{
+		display: block;
+	}
+}
+
+.image-form-block{
+	display: block;
+	margin: 0px auto 10px auto;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: $chatBorderColor;
+	overflow: hidden;
+	cursor: pointer;
+	img{
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.form-block{
+	width: 100%;
+	.form-label {	
+		color: #888;
+	}
+
+	label{
+		display: block;
+		font-size: 16px;
+		color: #888;
+		margin-bottom: 5px;
+	}
+	
+	//Текстовое поле
+	input[type=text],
+	.input-styles{
+		width: 100%;
+		background: #FFF;
+	    border: 1px solid #A0A0A0;
+	    color: $chatFirstColor;
+	    font-size: 17px;
+	    height: 35px;
+	    margin-bottom: 5px;
+	    padding: 0 5px 0 5px;
+	    outline: none;
+
+	    &:focus{
+			border: 1px solid $formFocusColor;
+			box-shadow: 0px 0px 4px $formFocusColor;
+		}
+
+		&.error-input{
+			border-color: #f80000;	
+		}
+	}
+
+	.input-wrapper {
+		position: relative;
+
+		&.error-input{
+			.input-styles{
+				border: 1px solid $formErrorColor;
+				color: $formErrorColor;
+				box-shadow: 0px 0px 4px $formErrorColor;
+			}
+
+			.error-text-block{
+				display: block;
+			}
+		}
+	}
+
+	.form-control {
+		font-size: 17px;
+		height: 35px;
+		margin-bottom: 5px;
+	}
+
+	&.info-block{
+		width: 100%;
+		font-size: 20px;
+		color: $formErrorColor;
+		line-height: 24px;
+	}
+
+	.error-text-block{
+		display: none;
+		position:absolute;
+		max-width:300px;
+		right:0;
+		top:41px;
+		font-size:14px;
+		line-height:16px;
+		z-index:2;
+		background-color: $formErrorColor;
+		color: $white;
+		border-radius:5px;
+		padding:5px;
+
+		&:after,
+		&:before{
+			content: "";
+			position: absolute;
+			left: 20px;
+			top: -14px;
+			border: 7px solid transparent;
+			border-bottom: 7px solid $formErrorColor;
+		}
+		&:after{
+			border-bottom:7px solid $formErrorColor;
+			top: -13px
+		}
+	}
+
+	&.buttons-wrapper{
+		text-align: center;
+		margin-top: 20px;
+	}	
+
+	//Поле select
+	.select-wrapper{
+		margin-bottom: 5px;
+
+		select{
+			position: relative;
+			width: 150%;
+			background: #FFF;		    
+		    color: $chatFirstColor;
+		    font-size: 17px;
+		    height: 35px;
+		    padding: 0 5px 0 5px;
+		    outline: none;		    
+		    visibility: visible;
+		    border: none;
+		    z-index: 2;
+		    background-color: transparent;
+		}
+
+		.select-block-wrapper{
+			display: inline-block;
+			float: left;
+		}
+
+		.select-block{			
+			position: relative;
+    		overflow: hidden;
+			border: 1px solid #A0A0A0;
+
+			&.error-input{
+				border-color: #f80000;	
+			}
+
+			&:after{
+				content: "";
+			    position: absolute;
+			    right: 0;
+			    top: 0px;
+			    width: 25px;
+			    height: 100%;
+			    text-align: center;
+			    background: transparent;
+			    color: #000;
+			    font-size: 10px;
+			    z-index: 0;
+			    background: url(../../img/select.png);
+			    background-repeat: no-repeat;
+			    background-position: 5px center;
+			}
+		}
+
+		.day-select{
+			width: 15%;
+			padding-right: 10px;
+		}
+
+		.mounth-select{
+			width: 60%;
+			padding-right: 10px;
+		}
+
+		.year-select{
+			width: 25%;
+		}
+	}
+}
+
+@media (max-width: 960px){
+	.reg-form-page{
+		padding: 5px;
+	}
+	.reg-form-wrapper{
+		width: 100%;
+		max-width: none;
+		padding: 5px;
+	}
+}

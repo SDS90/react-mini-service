@@ -1,0 +1,170 @@
+
+//Адаптивные стили
+
+@media (max-width: 1480px) {
+	//Общее
+	.phonebook-wrapper{
+		margin: 0px auto;
+
+		&.form-wrapper{
+			margin: 0px auto;
+		}
+	}
+}
+
+@media (max-width: 1100px) {
+	//Общее
+	.app-block{
+		padding: 10px;
+	}
+	.phonebook-wrapper{
+		margin: 10px;		
+		padding: 20px 30px;
+		border-radius: 20px;
+	}
+}
+
+@media (max-width: 960px) {
+	//Общее
+	.phonebook-wrapper{
+		padding: 20px;
+		margin: 0px;
+	}
+	//Адаптивизация таблицы
+	.phonebook-table{
+		thead{
+		    display: none;
+		}
+		tr {
+		    border: 1px solid #ddd;
+		    border-bottom: 0;
+		}
+		tr + tr {
+		    margin-top: 1.5em;
+		}
+		tr,td {
+		    display: block;
+		}
+		td {
+		    width: 100%;
+		    border: none;
+		    background-color: #fff !important;
+		    border-bottom: 1px solid #ddd;
+		    padding-left: 50%;
+		    text-align: left;
+
+		    &:before {
+			    content: attr(data-label);
+			    display: inline-block;
+			    vertical-align: middle;
+			    font-weight: bold;
+			    margin-left: -100%;
+			    width: 100%;
+			    font-size: 14px;
+			    line-height: 17px;
+			}
+
+			&.desktop-only{
+				display: none;
+			}
+
+			&.no-border-cell{
+				padding-left: 10px;
+			}
+		}
+		td.cell-id,
+		th.cell-id{
+			width: 100%;
+			text-align: left;
+		}
+		td.center-cell{
+			width: 100%;
+			padding: 5px 0px 5px 0px;
+			&:before{
+				display: none;
+			}
+		}
+
+		.action-link{
+			&.mobile-only{
+				display: inline-block;
+			}
+
+			&.edit{
+				/*float: right;*/
+				margin-right: 10px;
+			}
+
+			&.delete{
+				float: left;
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+
+@media (max-width: 705px) {	
+	//Общее
+	.phonebook-wrapper{
+		h2{
+			font-size: 20px;
+	    	line-height: 26px;
+		}
+	}
+	//Форма
+	.form-wrapper{
+		width: 100%;
+		padding: 10px;
+		border-radius: 0px;
+
+		&.form-wrapper{
+			width: 100%;
+			border-radius: 20px;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	//Общее
+	.mobile-only{
+		display: block;
+	}
+	.desktop-only{
+		display: none;
+	}
+	.phonebook-wrapper {
+
+		.buttons-wrapper{
+			margin: 0px;
+		}
+
+		.button-link{
+			display: block;
+			width: 100%;
+			margin: 0px 0px 10px 0px;
+			padding: 8px 0px;
+
+			&.desktop-only{
+				display: none;
+			}
+
+			&.mobile-only{
+				display: block;
+			}
+		}
+	}
+	
+	//Всплывающее окно
+	.popup-overlay {		
+		.popup-container{
+			width: 100%;
+			top: 20px;
+			left: 5px;
+			transform: none;
+		}
+		.popup-window{
+			padding: 20px;
+		}
+	}
+}
