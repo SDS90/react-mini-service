@@ -805,6 +805,11 @@ export default class App extends Component {
 	    			window.location.href = "/"
 				}
 			});
+	    } else {
+	    	const pathArray = window.location.pathname.split("/");
+	    	if (pathArray[1]){
+	    		window.location.href = "/";
+	    	}
 	    }
 
 	}
